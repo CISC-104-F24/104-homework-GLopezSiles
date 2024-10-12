@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
@@ -11,14 +12,11 @@ public class CharacterMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bool is_up_pressed;
-            is_up_pressed = Input.GetKeyDown(KeyCode.UpArrow);
-          //move one unit forward (z-axis) PER SECOND from current position
-            transform.position=transform.position+new Vector3(0,0,1)* moveSpeed * Time.deltaTime;
+        //If up is pressed, move forward
+        bool is_up_pressed = Input.GetKeyDown(KeyCode.UpArrow);
+        //move one unit forward (z-axis) PER SECOND from current position
+        transform.position = transform.position + new Vector3(0, 0, 1) * moveSpeed * Time.deltaTime;
         Rigidbody myRigidBody = GetComponent<Rigidbody>();
-
-
-
     }
 
     // Update is called once per frame
