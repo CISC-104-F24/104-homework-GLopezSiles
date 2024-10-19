@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-   
+    private const Space self = Space.Self;
+
+
 
     //Public variables that can tweaked in Unity Inspector
     public float moveSpeed = 5.0f;
     public float jumpPower = 10.0f;
     public float SprintSpeed = 50.0f;
+    public float RotationAngle = 90.0f;
+
 
     // Start is called before the first frame update
     public void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -67,11 +72,6 @@ public class CharacterMove : MonoBehaviour
 
 
 
-
-
-
-
-
             bool is_Shift_pressed;
             is_Shift_pressed = Input.GetKeyDown(KeyCode.LeftShift);
             if (is_Shift_pressed)
@@ -79,12 +79,22 @@ public class CharacterMove : MonoBehaviour
                 transform.position = transform.position + (SprintSpeed * Time.deltaTime * new Vector3(5, 0, 0));
 
 
+        
+
+            bool is_l_pressed;
+            is_l_pressed = Input.GetKeyDown(KeyCode.L);
+
+            if (is_l_pressed);
 
 
+            transform.Rotate(Vector3.up * moveSpeed * RotationAngle * Time.deltaTime, Space.Self);
 
         }
     }
+
 }
+
+
 
 
 
